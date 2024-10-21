@@ -1,0 +1,86 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package cn.com.webxml;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+import javax.xml.ws.WebEndpoint;
+import javax.xml.ws.WebServiceClient;
+import javax.xml.ws.WebServiceException;
+import javax.xml.ws.WebServiceFeature;
+
+@WebServiceClient(
+    name = "WeatherWebService",
+    targetNamespace = "http://WebXml.com.cn/",
+    wsdlLocation = "F:\class\31\体系结构\实验四\code2\weatherss\src\main\java\WeatherWebService.xml"
+)
+public class WeatherWebService extends Service {
+    private static final URL WEATHERWEBSERVICE_WSDL_LOCATION;
+    private static final WebServiceException WEATHERWEBSERVICE_EXCEPTION;
+    private static final QName WEATHERWEBSERVICE_QNAME = new QName("http://WebXml.com.cn/", "WeatherWebService");
+
+    public WeatherWebService() {
+        super(__getWsdlLocation(), WEATHERWEBSERVICE_QNAME);
+    }
+
+    public WeatherWebService(WebServiceFeature... var1) {
+        super(__getWsdlLocation(), WEATHERWEBSERVICE_QNAME, var1);
+    }
+
+    public WeatherWebService(URL var1) {
+        super(var1, WEATHERWEBSERVICE_QNAME);
+    }
+
+    public WeatherWebService(URL var1, WebServiceFeature... var2) {
+        super(var1, WEATHERWEBSERVICE_QNAME, var2);
+    }
+
+    public WeatherWebService(URL var1, QName var2) {
+        super(var1, var2);
+    }
+
+    public WeatherWebService(URL var1, QName var2, WebServiceFeature... var3) {
+        super(var1, var2, var3);
+    }
+
+    @WebEndpoint(
+        name = "WeatherWebServiceSoap"
+    )
+    public WeatherWebServiceSoap getWeatherWebServiceSoap() {
+        return (WeatherWebServiceSoap)super.getPort(new QName("http://WebXml.com.cn/", "WeatherWebServiceSoap"), WeatherWebServiceSoap.class);
+    }
+
+    @WebEndpoint(
+        name = "WeatherWebServiceSoap"
+    )
+    public WeatherWebServiceSoap getWeatherWebServiceSoap(WebServiceFeature... var1) {
+        return (WeatherWebServiceSoap)super.getPort(new QName("http://WebXml.com.cn/", "WeatherWebServiceSoap"), WeatherWebServiceSoap.class, var1);
+    }
+
+    private static URL __getWsdlLocation() {
+        if (WEATHERWEBSERVICE_EXCEPTION != null) {
+            throw WEATHERWEBSERVICE_EXCEPTION;
+        } else {
+            return WEATHERWEBSERVICE_WSDL_LOCATION;
+        }
+    }
+
+    static {
+        URL var0 = null;
+        WebServiceException var1 = null;
+
+        try {
+            var0 = new URL("file:/I:/ideaPlace/weatherss/src/main/java/WeatherWebService.xml");
+        } catch (MalformedURLException var3) {
+            var1 = new WebServiceException(var3);
+        }
+
+        WEATHERWEBSERVICE_WSDL_LOCATION = var0;
+        WEATHERWEBSERVICE_EXCEPTION = var1;
+    }
+}
